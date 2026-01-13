@@ -12,7 +12,21 @@ dotenv.config({
 
 
 
-connectDB()
+connectDB().
+then(()=>{
+
+    app.listen(process.env.PORT||8000 , ()=>{
+
+console.log(`Server is ruuning on PORT  ${process.env.PORT}`);
+
+
+    })
+})
+.catch((err)=>{
+console.log("ERROR IN DB CONNECTION ",err);
+
+
+})
 
 
 
